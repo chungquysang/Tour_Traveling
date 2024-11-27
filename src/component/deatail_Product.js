@@ -212,6 +212,15 @@ const Viewpddetails = () => {
     const tour = tours.find((t) => t.id === parseInt(id));
 
     const [mainImage, setMainImage] = useState(tour.photo[0]);
+    const [isFormVisible, setIsFormVisible] = useState(false);
+    const handleButtonClick = () => {
+        setIsFormVisible(true);
+    };
+
+
+    const handleCloseForm = () => {
+        setIsFormVisible(false);
+    };
 
     if (!tour) {
         return <div>Tour not found
@@ -266,10 +275,58 @@ const Viewpddetails = () => {
                         </div>
 
                         <div class="tour-footer">
-                            <button class="button">
+                            <button class="button" onClick={handleButtonClick}>
                                 Đặt Ngay
                             </button>
+                            {/* Form đặt tour du lịch*/}
+                            {isFormVisible && (
+                                <div className="booking-form">
+                                    <div className="form-overlay" onClick={handleCloseForm}></div>
+                                    <div className="form-content">
+                                        <h3>Đặt tour du lịch</h3>
+                                        <form>
+                                            <div className="form-group">
+                                                <label>Ngày nhận phòng:</label>
+                                                <input type="date" required />
+                                            </div>
+                                            <div className="form-group">
+                                                <label>Số lượng:</label>
+                                                <input type="number" min="1" required />
+                                            </div>
+                                            <div className="form-group">
+                                                <label>Họ và tên:</label>
+                                                <input type="text" placeholder="Nhập họ và tên" required />
+                                            </div>
+                                            <div className="form-group">
+                                                <label>Số điện thoại:</label>
+                                                <input
+                                                    type="text"
+                                                    placeholder="Nhập số điện thoại"
+                                                    pattern="\d+"
+                                                    title="Vui lòng nhập số điện thoại hợp lệ"
+                                                    required
+                                                />
+                                            </div>
+                                            <div className="form-group">
+                                                <label>Email:</label>
+                                                <input type="email" placeholder="Nhập email" required />
+                                            </div>
+                                            <div className="form-group">
+                                                <label>Yêu cầu:</label>
+                                                <textarea rows="3" placeholder="Nhập yêu cầu của bạn"></textarea>
+                                            </div>
+                                            <button className="booking-button" type="submit">
+                                                Đặt ngay
+                                            </button>
+                                        </form>
+                                        <div className="close-button" onClick={handleCloseForm}>
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path fill="#adb5c2" d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z" /></svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            )}
                         </div>
+
                     </div>
                 </div>
             </div>

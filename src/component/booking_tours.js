@@ -277,7 +277,9 @@ const TourSelection = () => {
                 </div>
                 <div className="tour-price">
                   <p>{tour.price.toLocaleString()}₫ / khách</p>
+                  <button className="details-button" onClick={() => handleCardClick(tour.id)} >Đặt ngay</button>
                 </div>
+
               </div>
             ))}
           </div>
