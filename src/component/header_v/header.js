@@ -25,6 +25,7 @@ export default function Viewheader() {
                         </div>
                         <div className="Header_menu__jRq_R h-full flex align-center">
                             <a href="/blog">
+<<<<<<< HEAD
                                 <label className="md">Blog</label>
                             </a>
                         </div>
@@ -33,6 +34,9 @@ export default function Viewheader() {
                             <a href="/admin">
                                 <label className="md">Admin</label>
                             </a>
+=======
+                                <label className="md">Blog</label></a>
+>>>>>>> 84083f4908dc2c5cf6ebaa658dcd770349db58c0
                         </div>
                     </div>
                 </div>
