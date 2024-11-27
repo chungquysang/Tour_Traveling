@@ -1,17 +1,24 @@
-import React from 'react';
-import "./App.css";
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import TourSelection from "./component/booking_tours";
-import ViewBlog from './component/blog';
+import ViewBlog from "./component/blog";
+import Viewpddetails from "./component/deatail_Product";
+import AdminPage from "./component/AdminPage";  // AdminPage import
+import AddTourForm from "./component/AddTourForm";  // AddTourForm import
 
+const NotFound = () => <div>404 - Page Not Found</div>;
 
 function App() {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<TourSelection />} />
+        <Route path="/detailsproduct/:id" element={<Viewpddetails />} />
         <Route path="/blog" element={<ViewBlog />} />
-        {/* <Route path="/contact" element={<Contact />} /> */}
+        <Route path="/admin" element={<AdminPage />} />
+        <Route path="/admin/edit/:id" element={<AdminPage />} />  {/* Correct route for editing */}
+        <Route path="/add-tour" element={<AddTourForm />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>
   );
