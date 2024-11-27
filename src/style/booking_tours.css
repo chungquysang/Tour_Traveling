@@ -1,6 +1,7 @@
 /* * {
   cursor: pointer;
 } */
+@import url('https://fonts.googleapis.com/css2?family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap');
 
 .tour-selection {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
@@ -180,6 +181,22 @@
   max-width: 100%;
   box-shadow: 0 0.4rem #dfd9d9, inset 0 0 0 transparent;
   transition: border-color 0.3s, box-shadow 0.3s;
+  font-size: 17px;
+  font-family: "Sour Gummy", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: weight;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+}
+
+.input-select option {
+  font-size: 17px;
+  font-family: "Sour Gummy", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: weight;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
 }
 
 .input-text:focus,
@@ -271,6 +288,7 @@
   font-size: 18px;
   line-height: 28px;
   font-weight: 700;
+
 }
 
 .tour-content p {
@@ -282,6 +300,7 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis; */
+  
 }
 
 .tour-content p:hover {

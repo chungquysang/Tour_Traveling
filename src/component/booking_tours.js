@@ -1,11 +1,12 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "../style/booking_tours.css";
 import Viewheader from "./header_v/header";
+import Viewfooter from "./footer_v/footer";
 import hanoiHalong from "../assets/images/111.png";
 import danangHoian from "../assets/images/111.png";
 import saigonCuchi from "../assets/images/111.png";
 import huePhongNha from "../assets/images/111.png";
-
 import backgroundImage from "../assets/images/image.png";
 
 const tours = [
@@ -209,11 +210,17 @@ const tours = [
 const TourSelection = () => {
   const [searchTerm, setSearchTerm] = useState("");
 
+  const navigate = useNavigate(); // Sử dụng để điều hướng
+
   const handleSearch = () => {
     const filteredTours = tours.filter((tour) =>
       tour.title.toLowerCase().includes(searchTerm.toLowerCase())
     );
     console.log(filteredTours);
+  };
+
+  const handleCardClick = (tourID) => {
+    navigate(`/detailsproduct/${tourID}`); // Chuyển đến trang chi tiết
   };
 
   return (
@@ -242,10 +249,9 @@ const TourSelection = () => {
               </select>
               <select className="input-select">
                 <option value="0">Tất cả mức giá</option>
-                <option value="1">0-1tr</option>
-                <option value="2">1tr-2tr</option>
-                <option value="3">2tr-4tr</option>
-                <option value="4">4tr-8tr</option>
+                <option value="2">Từ 1tr đến 2tr</option>
+                <option value="3">Từ 2tr đến 4tr</option>
+                <option value="4">Từ 4tr đến 8tr</option>
               </select>
               <button className="search-button" onClick={handleSearch}>
                 Tìm kiếm
@@ -259,7 +265,11 @@ const TourSelection = () => {
           <h2>Tour mới và phổ biến nhất</h2>
           <div className="tour-grid">
             {tours.map((tour) => (
-              <div key={tour.id} className="tour-card">
+              <div
+                key={tour.id}
+                className="tour-card"
+                onClick={() => handleCardClick(tour.id)} // Xử lý khi click
+              >
                 <img src={tour.photo} alt={tour.title} className="tour-image" />
                 <div className="tour-content">
                   <h3>{tour.title}</h3>
@@ -267,14 +277,14 @@ const TourSelection = () => {
                 </div>
                 <div className="tour-price">
                   <p>{tour.price.toLocaleString()}₫ / khách</p>
-                  <button className="details-button">Đặt ngay</button></div>
+                </div>
               </div>
             ))}
           </div>
         </div>
 
         {/* Review Section */}
-        <div className="reviews-section">
+        {/* <div className="reviews-section">
           <h2>Đánh giá từ những người đã trải nghiệm</h2>
           <div className="review-card">
             <p>
@@ -283,7 +293,12 @@ const TourSelection = () => {
               tình."
             </p>
           </div>
-        </div>
+        </div> */}
+        {/* Footer  */}
+
+      </div>
+      <div>
+        <Viewfooter />
       </div>
     </div>
   );

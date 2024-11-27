@@ -23,8 +23,8 @@ export default function Viewheader() {
                             <label className="md">Doanh nghiệp</label>
                         </div>
                         <div className="Header_menu__jRq_R h-full flex align-center">
-                            <a href="/blog" ><label className="md">
-                                Blog</label></a>
+                            <a href="/blog">
+                                <label className="md">Blog</label></a>
                         </div>
                     </div>
                 </div>
